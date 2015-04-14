@@ -1,5 +1,5 @@
+var length = $('#cart tr').length;
 $('#cart').replaceWith("<%= escape_javascript render(@cart) %>");
-
-if ($('#cart tr').length == 1) { $('#cart').show('blind', 1000); }
-
+var newlength = $('#cart tr').length;
+if (newlength != length) { $('#cart').children().hide(); $('#cart').children().fadeIn(1000); }
 $('#current_item').css({'background-color':'#88ff88'}).animate({'background-color':'#114411'}, 1000);
