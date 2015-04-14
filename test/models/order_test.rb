@@ -1,19 +1,19 @@
 # == Schema Information
 #
-# Table name: line_items
+# Table name: orders
 #
 #  id         :integer          not null, primary key
-#  product_id :integer
-#  cart_id    :integer
+#  name       :string(255)
+#  address    :text
+#  email      :string(255)
+#  pay_type   :string(255)
 #  created_at :datetime
 #  updated_at :datetime
-#  quantity   :integer          default(1)
-#  order_id   :integer
 #
 
 require 'test_helper'
 
-class LineItemTest < ActiveSupport::TestCase
+class OrderTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

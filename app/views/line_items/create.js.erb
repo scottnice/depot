@@ -1,5 +1,11 @@
+$('#notice').hide();
 var length = $('#cart tr').length;
 $('#cart').replaceWith("<%= escape_javascript render(@cart) %>");
 var newlength = $('#cart tr').length;
-if (newlength != length) { $('#cart').children().hide(); $('#cart').children().fadeIn(1000); }
+var nodes = $('td[colspan]').filter(function() {
+  return +$(this).attr('colspan') == 3
+});
+nodes = nodes.last();
+if (length == 1) { $('#cart').children().hide(); $('#cart').children().fadeIn(1000); }
+else if(length != newlength) {$('#cart tr#current_item').hide(); $('#cart tr#current_item').fadeIn(1000); nodes.hide(); nodes.fadeIn(1000);}
 $('#current_item').css({'background-color':'#88ff88'}).animate({'background-color':'#114411'}, 1000);

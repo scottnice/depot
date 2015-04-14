@@ -1,0 +1,15 @@
+  <% @product.orders.each do |order| %>
+      <p> <%= "Order #{order.id}" %></p>
+      <% order.line_items.each do |item| %>
+      <p>
+          <%= item.product.title %>
+           <%=   item.quantity %>
+           <%= number_to_currency item.total_price %>
+           </p>
+            <% end %>
+            <p>
+            <%= "Pay type #{order.pay_type}" %>
+            <%= "Name: #{order.name}" %>
+            <%= "Email: #{order.email }" %>
+            </p>
+      <% end %>
